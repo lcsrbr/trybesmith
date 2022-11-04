@@ -34,7 +34,7 @@ services:
     # Configura as variáveis de ambiente dentro do container
     environment:
       MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: 12321
       MYSQL_HOST: db
       JWT_SECRET: secret
 
@@ -50,7 +50,7 @@ services:
       - 3306:3306
       - 33060:33060
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: 12321
 
 # Lista de redes que os containeres irão utilizar
 networks:
