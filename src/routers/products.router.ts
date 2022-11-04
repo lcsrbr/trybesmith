@@ -11,5 +11,6 @@ const productsController = new ProductsController();
 // productsRouter.get('/', productssController.getAll.bind(productssController));
 // solução 3- Manter como Método e abrir um middleware e chamar como uma funcão!
 productsRouter.post('/', (req, res) => productsController.insertProducts(req, res));
+productsRouter.get('/', (req, res) => productsController.getProducts(req, res));
 
 export default productsRouter;

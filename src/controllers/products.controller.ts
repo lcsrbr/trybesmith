@@ -6,8 +6,12 @@ export default class ProductsController {
 
   async insertProducts(req: Request, res: Response) {
     const { name, amount } = req.body;
-    console.log(this);
     const products = await this.productService.insertProducts(name, amount);
     res.status(201).json(products);
+  }
+
+  async getProducts(req: Request, res: Response) {
+    const products = await this.productService.getProducts();
+    res.status(200).json(products);
   }
 }
