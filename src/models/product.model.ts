@@ -1,5 +1,5 @@
 import { RowDataPacket } from 'mysql2';
-import { Pool, ResultSetHeader } from 'mysql2/promise';
+import { ResultSetHeader } from 'mysql2/promise';
 import mysql from './connection';
 
 import { IProduct } from '../interface';
