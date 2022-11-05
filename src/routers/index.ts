@@ -4,8 +4,6 @@ import usersRouter from './users.router';
 import ordersRouter from './orders.router';
 import loginRouter from './login.router';
 
-// import authMiddleware from '../middlewares';
-
 const router = Router();
 
 router.use('/products', productsRouter);
