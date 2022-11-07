@@ -1,4 +1,4 @@
-import { ILogin, IUser } from '../interface';
+import { ILogin } from '../interface';
 import LoginModel from '../models/login.model';
 import UserModel from '../models/user.model';
 import CreateToken from '../utils/createToken';
@@ -12,24 +12,10 @@ export default class LoginService {
 
   createToken = new CreateToken();
 
-  async loginValidate(login: ILogin): Promise<[number, object]> {
-    if (!login.username) {
-      return [400, { message: '"username" is required' }]; 
-    }
-    if (!login.password) {
-      return [400, { message: '"password" is required' }]; 
-    }
-    const verify = await this.userModel.findByUser(login.username);
-    if (verify.length === 0) {
-      return [401, { message: 'Username or password invalid' }];
-    }
-    if (verify[0].password !== login.password) {
-      return [401, { message: 'Username or password invalid' }];
-    }
-
-    const teste: IUser[] = await this.loginModel.loginValidate(login);
-    const result = await this.createToken.createToken(teste[0]);
-    return [200, { token: result }];
+  async loginValidate(login: ILogin): Promise<string> {
+    const validate = await this.loginModel.loginValidate(login);
+    const result = await this.createToken.createToken(validate);
+    return result;
   }
 }
 

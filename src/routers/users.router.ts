@@ -8,10 +8,7 @@ const userController = new UserController();
 
 userRouter.post(
   '/',
-  userValidate.ClasseValidate, 
-  userValidate.LevelValidate,
-  userValidate.UsernameValidate, 
-  userValidate.PasswordValidate,
+  userValidate, 
 
   (req, res) => userController.insertUser(req, res),
 );

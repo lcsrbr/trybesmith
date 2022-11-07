@@ -8,8 +8,7 @@ const productsController = new ProductsController();
 
 productsRouter.post(
   '/', 
-  productValidate.NameValidate,
-  productValidate.AmountValidate, 
+  productValidate,
   (req, res) => productsController
     .insertProducts(req, res),
 );

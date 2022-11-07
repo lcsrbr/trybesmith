@@ -24,5 +24,6 @@ export interface ILogin {
 
 export interface IOrders {
   userId: number,
+  id?: number,
   productsIds: number[],
 }

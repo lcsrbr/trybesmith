@@ -7,9 +7,9 @@ import { ILogin, IUser } from '../interface';
 export default class LoginModel {
   connection = mysql;
 
-  public async loginValidate(login: ILogin): Promise<IUser[]> {
+  public async loginValidate(login: ILogin): Promise<IUser> {
     const { username, password } = login;
-    const [result] = await this
+    const [[result]] = await this
       .connection.execute<IUser[] & RowDataPacket[]>(`
       SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ?;`, [username, password]);
       
